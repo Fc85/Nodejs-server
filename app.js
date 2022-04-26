@@ -10,9 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./app/models/index.js");
 db.sequelize.sync();
 
+// Routes / Controller
 app.get("/", function (req, res) {
-  res.send("Hello Philippe🔥");
+  res.send("Bienvenue sur notre super API !");
 });
+
+require("./app/routes/produit.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

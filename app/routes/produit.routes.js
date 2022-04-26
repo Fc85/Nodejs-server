@@ -13,8 +13,8 @@ module.exports = (app) => {
   // Affiche un produit par son ID
   router.get("/:toto", produits.findOne);
 
-  // // MAJ un produit par son ID
-  // router.put("/:id", produits.update);
+  // MAJ un produit par son ID
+  router.put("/:id", produits.update);
 
   // // Supprime un produit par son ID
   // router.delete("/:id", produits.delete);

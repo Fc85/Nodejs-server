@@ -49,3 +49,21 @@ exports.findOne = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+// Modifier un produit par son id
+exports.update = (req, res) => {
+  // Récupération de l'id du produit
+  const id = req.params.id;
+
+  Produit.update(req.body, { where: { id: id } })
+    .then((num) => {
+      if (num == 1) {
+        res.status(200).send({ message: "Mis à jour avec succès !" });
+      } else {
+        res.status(404).send({ message: `L'id ${id} est introuvable` });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};

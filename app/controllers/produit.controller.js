@@ -20,3 +20,14 @@ exports.toto = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+//Afficher tout les produits
+exports.findAll = (req, res) => {
+  Produit.findAll()
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};

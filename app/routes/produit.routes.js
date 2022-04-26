@@ -7,8 +7,8 @@ module.exports = (app) => {
   // Créer un nouveau produit
   router.post("/", produits.toto);
 
-  // // Affiche tous les produits
-  // router.get("/", produits.findAll);
+  // Affiche tous les produits
+  router.get("/", produits.findAll);
 
   // // Affiche un produit par son ID
   // router.get("/:id", produits.findOne);

@@ -67,3 +67,34 @@ exports.update = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+// Supprimer un produit par son id
+exports.delete = (req, res) => {
+  // Récupération de l'id du produit
+  const id = req.params.id;
+
+  Produit.destroy({ where: { id: id } })
+    .then((num) => {
+      if (num == 1) {
+        res.status(200).send({ message: "Produit supprimé avec succès !" });
+      } else {
+        res.status(404).send({ message: `L'id ${id} est introuvable` });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+// Supprimer un produit par son id
+exports.deleteAll = (req, res) => {
+  Produit.destroy({ where: {}, truncate: false })
+    .then((nums) => {
+      res
+        .status(200)
+        .send({ message: `${nums} Produits supprimés avec succès !` });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};

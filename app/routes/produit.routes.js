@@ -16,9 +16,9 @@ module.exports = (app) => {
   // MAJ un produit par son ID
   router.put("/:id", produits.update);
 
-  // // Supprime un produit par son ID
-  // router.delete("/:id", produits.delete);
+  // Supprime un produit par son ID
+  router.delete("/:id", produits.delete);
 
-  // // Supprime tous les produits
-  // router.delete("/", produits.deleteAll);
+  // Supprime tous les produits
+  router.delete("/", produits.deleteAll);
 };

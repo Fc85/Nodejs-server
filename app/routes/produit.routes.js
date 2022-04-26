@@ -10,8 +10,8 @@ module.exports = (app) => {
   // Affiche tous les produits
   router.get("/", produits.findAll);
 
-  // // Affiche un produit par son ID
-  // router.get("/:id", produits.findOne);
+  // Affiche un produit par son ID
+  router.get("/:toto", produits.findOne);
 
   // // MAJ un produit par son ID
   // router.put("/:id", produits.update);

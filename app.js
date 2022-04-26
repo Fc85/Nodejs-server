@@ -6,6 +6,15 @@ app.use(express.json());
 // récupère les variables de l URL
 app.use(express.urlencoded({ extended: true }));
 
+// CORS
+const cors = require("cors");
+//urls autorisées
+const corsOptions = {
+  origin: ["http://localhost:19006"],
+};
+
+app.use(cors(corsOptions));
+
 // BDD
 const db = require("./app/models/index.js");
 db.sequelize.sync();
